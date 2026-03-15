@@ -14,37 +14,37 @@
             </tr>
             <tr>
                 <td><input type="button" value="C" onclick="deleteMe()"></td>
-                <td><input type="button" value="(" onclick="calculator()"></td>
-                <td><input type="button" value=")" onclick="calculator()"></td>
-                <td><input type="button" value="%" onclick="calculator()"></td>
+                <td><input type="button" value="(" onclick="calculator('(')"></td>
+                <td><input type="button" value=")" onclick="calculator(')')"></td>
+                <td><input type="button" value="%" onclick="calculator('%')"></td>
 
 
             </tr>
             <tr>
-                <td><input type="button" value="7" onclick="calculator()"></td>
-                <td><input type="button" value="8" onclick="calculator()"></td>
-                <td><input type="button" value="9" onclick="calculator()"></td>
-                <td><input type="button" value="+" onclick="calculator()"></td>
+                <td><input type="button" value="7" onclick="calculator('7')"></td>
+                <td><input type="button" value="8" onclick="calculator('8')"></td>
+                <td><input type="button" value="9" onclick="calculator('9')"></td>
+                <td><input type="button" value="+" onclick="calculator('+')"></td>
                 
             </tr>   
             <tr>
-                <td><input type="button" value="4" onclick="calculator()"></td>
-                <td><input type="button" value="5" onclick="calculator()"></td>
-                <td><input type="button" value="6" onclick="calculator()"></td>
-                <td><input type="button" value="-" onclick="calculator()"></td>
+                <td><input type="button" value="4" onclick="calculator('4')"></td>
+                <td><input type="button" value="5" onclick="calculator('5')"></td>
+                <td><input type="button" value="6" onclick="calculator('6')"></td>
+                <td><input type="button" value="-" onclick="calculator('-')"></td>
                 
             </tr>   
             <tr>
-                <td><input type="button" value="1" onclick="calculator()"></td>
-                <td><input type="button" value="2" onclick="calculator()"></td>
-                <td><input type="button" value="3" onclick="calculator()"></td>
-                <td><input type="button" value="*" onclick="calculator()"></td>
+                <td><input type="button" value="1" onclick="calculator('1')"></td>
+                <td><input type="button" value="2" onclick="calculator('2')"></td>
+                <td><input type="button" value="3" onclick="calculator('3')"></td>
+                <td><input type="button" value="*" onclick="calculator('*')"></td>
                 
             </tr>   
             <tr>
-                <td><input type="button" value="0" onclick="calculator()"></td>
-                <td><input type="button" value="." onclick="calculator()"></td>
-                <td><input type="button" value="/" onclick="calculator()"></td>
+                <td><input type="button" value="0" onclick="calculator('0')"></td>
+                <td><input type="button" value="." onclick="calculator('.')"></td>
+                <td><input type="button" value="/" onclick="calculator('/')"></td>
                 <td><input type="button" value="=" onclick="answer()"></td>
                 
             </tr>   
@@ -52,15 +52,104 @@
     </div>
     
 <script>
+    function display(value){
+        document.getElementById("display").value = value;
+
+    };
+
+    function displayValue(){
+        var value = document.getElementById("display").value;
+        return value;
+
+    };
+
+    function displayAnswer(){
+        var value = displayValue();
+        var answer = eval(value);
+        document.getElementById("display").value = answer;
+    };
+
+    function displayDelete(){
+        document.getElementById("display").value = "";
+
+    };
+
+    function deleteValue(){
+        var value = displayValue();
+        var deleteValue = value.slice(0, -1);
+        document.getElementById("display").value = deleteValue;
+
+    };
+
+    function deleteAll(){
+        document.getElementById("display").value = "";
+
+    };
+
+    function deleteLast(){
+        var value = displayValue();
+        var deleteLast = value.slice(0, -1);
+        document.getElementById("display").value = deleteLast;
+
+    };
+
+    function deleteFirst(){
+        var value = displayValue();
+        var deleteFirst = value.slice(1);
+        document.getElementById("display").value = deleteFirst;
+
+    };
+
+    function deleteAllValue(){
+        document.getElementById("display").value = "";
+
+    };
+
+    function deleteLastValue(){
+        var value = displayValue();
+        var deleteLastValue = value.slice(0, -1);
+        document.getElementById("display").value = deleteLastValue;
+
+    };
+
+    function answerValue(){
+        var value = displayValue();
+        var answerValue = eval(value);
+        document.getElementById("display").value = answerValue;
+
+    };
+
+    function answerAll(){
+        var value = displayValue();
+        var answerAll = eval(value);
+        document.getElementById("display").value = answerAll;   }
+
+        function percentage(){
+            var value = displayValue();
+            var percentage = eval(value) / 100;
+            document.getElementById("display").value = percentage;
+
+        };
+
+
     function deleteMe(){
+        document.getElementById("display").value = "";
+
+    };
+    function calculator(value){
+        document.getElementById("display").value += value;
 
     };
 
     function openedValue(){
+        var value = document.getElementById("display").value;
+        return value;
 
     };
     function answer(){
-
+        var value = openedValue();
+        var answer = eval(value);
+        document.getElementById("display").value = answer;
     }
 </script>
 
