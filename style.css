@@ -4,40 +4,88 @@ body {
 }
 
 .calculatorBody {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 340px;
+    margin: 60px auto;
+    padding: 30px 20px 20px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-table {
+.calculator-display {
     width: 100%;
-}
-
-td {
-    padding: 10px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
+    padding: 18px 10px;
+    font-size: 2rem;
     text-align: right;
     border: none;
-    background-color: #f9f9f9;
+    background: #f4f7fa;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    color: #222;
 }
 
-input[type="button"] {
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    grid-gap: 12px;
     width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    background-color: #e0e0e0;
-    cursor: pointer;
 }
 
-input[type="button"]:hover {
-    background-color: #d0d0d0;
+.btn {
+    padding: 18px 0;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background: #e3e9f0;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.btn:hover {
+    background: #cfd8e3;
+}
+
+.btn.operator {
+    background: #a3bffa;
+    color: #fff;
+}
+.btn.operator:hover {
+    background: #7b93c7;
+}
+
+.btn.function {
+    background: #fbbf24;
+    color: #fff;
+}
+.btn.function:hover {
+    background: #f59e42;
+}
+
+.btn.equals {
+    background: #34d399;
+    color: #fff;
+    grid-column: span 1;
+}
+.btn.equals:hover {
+    background: #059669;
+}
+
+@media (max-width: 400px) {
+    .calculatorBody {
+        width: 98vw;
+        padding: 10px 2vw;
+    }
+    .calculator-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .calculator-display {
+        font-size: 1.2rem;
+        padding: 10px 4px;
+    }
 }
